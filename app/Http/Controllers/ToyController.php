@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Toy;
 
 class ToyController extends Controller
 {
@@ -10,14 +11,16 @@ class ToyController extends Controller
         $viewdata = [];
         $viewdata['title'] = "Store Page - Toy Webstore";
         $viewdata['subtitle'] = "Toy Webstore";
+        $viewdata['toys'] = Toy::all();
 
         return view("toy.index")->with("viewdata", $viewdata);
     }
 
-    public function show(){
+    public function show($id){
         $viewdata = [];
         $viewdata['title'] = "Store Page- Toy Webstore";
         $viewdata['subtitle'] = "Toy Product";
+        $viewdata['toy'] = Toy::findOrFail($id);
 
         return view("home.about")->with("viewdata", $viewdata);
     }
