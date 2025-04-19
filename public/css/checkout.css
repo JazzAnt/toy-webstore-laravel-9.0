@@ -1,0 +1,143 @@
+div#purchase-details {
+    width: 100%;
+}
+
+div#purchase-details table {
+    width: 100%;
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: darkred;
+    color: white;
+}
+
+th {
+    border: 2px solid black;
+}
+
+tr.purchase-row {
+    border-bottom: 1px solid gray;
+}
+
+tr.purchase-row > td img {
+    width: 100%;
+    padding-top: 4px;
+    padding-left: 4px;
+}
+
+col#column-image {
+    width: 13%;
+    background-color: wheat;
+}
+
+col#column-name {
+    width: 45%;
+    background-color: wheat;
+}
+
+col#column-quantity {
+    width: 17%;
+    background-color: bisque;
+}
+
+col#column-price {
+    width: 25%;
+    background-color: wheat;
+}
+
+td {
+    text-align: center;
+}
+
+div#checkout-buttons {
+    width: 100%;
+    text-align: center;
+}
+
+div#checkout-buttons button {
+    padding: 2px 10px;
+    font-size: 1.2em;
+    margin: 5px 20px;
+}
+
+div#total-purchase {
+    width: 100%;
+    background-color: palevioletred;
+    border: 2px solid black;
+}
+
+div#total-purchase p {
+    width: 100%;
+    text-align: right;
+    padding: 0px 10% 5px 0;
+    font-size: 1.1em;
+}
+
+p#total-bill {
+    border-top: 1px dashed black;
+}
+
+/**=================================================== 
+   MOBILE VIEW : 0px to 600px
+   ===================================================*/
+@media only screen and (max-width: 600px) {
+    
+}
+
+/**===================================================
+   TABLET POTRAIT VIEW : 601px and greater
+   ===================================================*/
+@media only screen and (min-width: 601px) {
+    div#purchase-details, div#total-purchase {
+        width: 90%;
+        margin-left: 5%;
+        padding-top: 15px;
+    }
+
+    div#total-purchase {
+        padding-top: 5px;
+    }
+
+    /*col img = 13%*/
+    col#column-name {
+        width: 53%;
+    }
+
+    col#column-quantity {
+        width: 14%;
+    }
+
+    col#column-price {
+        width: 20%;
+    }
+
+}
+
+/**===================================================
+   TABLET LANDSCAPE & DESKTOP VIEW : 901px and greater
+   ===================================================*/
+@media only screen and (min-width: 901px) {
+    div#purchase-details, div#total-purchase {
+        width: 75%;
+        margin-left: 12.5%;
+    }
+
+    div#total-purchase {
+        margin-top: 5px;
+    }
+
+    /*col img = 13%*/
+    col#column-name {
+        width: 60%;
+    }
+
+    col#column-quantity {
+        width: 10%;
+    }
+
+    col#column-price {
+        width: 17%;
+    }
+}

@@ -1,11 +1,6 @@
 @section('footer')
 <footer>
-    <div class="copyright py-4 text-center text-white">
-        <div class="container">
-            <small>
-                Copyright 2025 - Jason Januar - 300393865
-            </small>
-        </div>
-    </div>
+       <h2>Copyright 2025 - Jason Januar - 300393865</h2> 
+       <h3>Want to give us feedback?</h3><div id="contact-button"><a href="{{ route('home.contact') }}">Click Here!</a></div>
 </footer>
 @endsection

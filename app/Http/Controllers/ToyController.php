@@ -21,6 +21,7 @@ class ToyController extends Controller
         $viewdata['title'] = "Store Page- Toy Webstore";
         $viewdata['subtitle'] = "Toy Product";
         $viewdata['toy'] = Toy::findOrFail($id);
+        $viewdata['toys'] = Toy::all();
 
         return view("toy.show")->with("viewdata", $viewdata);
     }

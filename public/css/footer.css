@@ -1,0 +1,70 @@
+footer {
+    background-color: rgb(241, 163, 179);
+    border-top: 2px solid black;
+}
+
+footer > h2 {
+    text-shadow: 2px 2px gray;
+    word-spacing: 5px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    background-color: rgb(246, 130, 153);
+    border-bottom: 2px dashed gray;
+}
+
+footer > p {
+    padding-left: 20px;
+
+}
+
+footer > h3 {
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+#contact-button {
+    font-size: 1.2em;
+    padding-bottom: 3px;
+}
+#contact-button a {
+    text-decoration: none;
+    color: blue;
+    font-weight: bolder;
+}
+
+#contact-button a:hover {
+    color: purple;
+    font-weight: bolder;
+}
+
+/**=================================================== 
+   MOBILE VIEW : 0px to 600px
+   ===================================================*/
+@media only screen and (max-width: 600px) {
+    #contact-button {
+        padding-left: 20px;
+    }    
+}
+
+/**===================================================
+   TABLET POTRAIT VIEW : 601px and greater
+   ===================================================*/
+@media only screen and (min-width: 601px) {
+    footer > h3 {
+        width: 240px;
+        float: left;
+        box-sizing: content-box;
+    }
+    #contact-button {
+        padding-top: 5px;
+    }
+}
+
+/**===================================================
+   TABLET LANDSCAPE & DESKTOP VIEW : 901px and greater
+   ===================================================*/
+@media only screen and (min-width: 901px) {
+    footer > h3 {
+        padding-left: 15px;
+    }
+}

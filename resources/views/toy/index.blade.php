@@ -2,56 +2,154 @@
 @section('title', $viewdata["title"])
 @section('subtitle', $viewdata["subtitle"])
 @section('content')
-<div class="row">
-    <!-- For each toy make a display card -->
-    @foreach($viewdata["toys"] as $toy)
-    <!-- Display all items on stock -->
-    @if($toy->getQuantity() > 0)
-    <div class="col-md-4 col-lg-3 mb-2">
-    <div class="card">
-        <ul>
-            <li class="toy-name">{{ $toy->getName() }}</li>
-            <li class="toy-image">
-                <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
-                    <img src="{{ asset('/img/'.$toy->getImage()) }}" class="img-fluid rounded-start">
-                </a>
-            </li>
-            <li class="toy-price">Price: ${{ $toy->getPrice() }}</li>
-            <!-- If quantity above 100 then just display 99+ -->
-            @if ($toy->getQuantity() > 99)
-            <li class="toy-quantity">Stock: 99+</li>
-            <!--If quantity is under 100 then display the actual number-->
-            @elseif ($toy->getQuantity() > 10)
-            <li class="toy-quantity">Stock: {{ $toy->getQuantity() }}</li>
-            <!-- If quantity is low then display warning -->
-            @else
-            <li class="toy-quantity low-stock">Stock: {{ $toy->getQuantity() }} (Low Stock!)</li>
-            @endif
-        </ul>
-    </div>
-    </div>
-    @endif
-    @endforeach
-    <!-- Below is for all out of stock items, they're placed at the bottom of the display -->
-    @foreach($viewdata["toys"] as $toy)
-    <!-- Display all items on stock -->
-    @if($toy->getQuantity() == 0)
-    <div class="col-md-4 col-lg-3 mb-2">
-    <div class="card">
-        <ul>
-            <li class="toy-name">{{ $toy->getName() }}</li>
-            <li class="toy-image">
-                <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
-                    <img src="{{ asset('/img/'.$toy->getImage()) }}">
-                </a>
-            </li>
-            <li class="toy-price">Price: ${{ $toy->getPrice() }}</li>
-            <!--If low stock then display a warning-->
-            <li class="toy-quantity">OUT OF STOCK</li>
-        </ul>
-    </div>
-    </div>
-    @endif
-    @endforeach
-</div>
+    <div id="wrapper">
+        <div id="table-of-contents">
+            <h2>Table of Contents</h2>
+           <ul>
+            <li><a href="#cars">RC Cars</a></li>
+            <li><a href="#boats">RC Boats</a></li>
+            <li><a href="#helis">RC Helis</a></li>
+           </ul> 
+        </div>
+        <div id="catalog">
+            <!--Each sub catalog is hidden by default, drop down when hover-->
+            <div class="sub-catalog" id="cars">
+                <h2>RC Cars</h2>
+                <!--sub-catalog-products is the container for the product grid-->
+                <div class="sub-catalog-products" id="cars-catalog">
+                    @foreach($viewdata['toys'] as $toy)
+                    @if($toy->getType() == "rc-car")
+                    @if($toy->getQuantity() > 0)
+                    <ul class="product">
+                        <li class="product-title">{{ $toy->getName() }}</li>
+                        <li class="product-image">
+                            <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
+                                <img src="{{ asset('/img/'.$toy->getImage()) }}">
+                            </a>
+                            <ul class="product-details">
+                                <li>Price: ${{ $toy->getPrice() }}</li>
+                                <li>Stock: {{ $toy->getQuantity() }}</li>
+                                @if($toy->getQuantity() < 10)
+                                <li>LOW STOCK</li>
+                                @endif
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+                    @endif
+                    @endforeach
+                    @foreach($viewdata['toys'] as $toy)
+                    @if($toy->getType() == "rc-car")
+                    @if($toy->getQuantity() == 0)
+                    <ul class="product">
+                        <li class="product-title">{{ $toy->getName() }}</li>
+                        <li class="product-image">
+                            <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
+                                <img src="{{ asset('/img/'.$toy->getImage()) }}">
+                            </a>
+                            <ul class="product-details">
+                                <li>Price: ${{ $toy->getPrice() }}</li>
+                                <li>Stock: OUT OF STOCK</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+                    @endif
+                    @endforeach
+                </div>
+            </div>
+            <!--Each sub catalog is hidden by default, drop down when hover-->
+            <div class="sub-catalog" id="boats">
+                <h2>RC Boats</h2>
+                <!--sub-catalog-products is the container for the product grid-->
+                <div class="sub-catalog-products" id="boats-catalog">
+                    @foreach($viewdata['toys'] as $toy)
+                    @if($toy->getType() == "rc-boat")
+                    @if($toy->getQuantity() > 0)
+                    <ul class="product">
+                        <li class="product-title">{{ $toy->getName() }}</li>
+                        <li class="product-image">
+                            <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
+                                <img src="{{ asset('/img/'.$toy->getImage()) }}">
+                            </a>
+                            <ul class="product-details">
+                                <li>Price: ${{ $toy->getPrice() }}</li>
+                                <li>Stock: {{ $toy->getQuantity() }}</li>
+                                @if($toy->getQuantity() < 10)
+                                <li>LOW STOCK</li>
+                                @endif
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+                    @endif
+                    @endforeach
+                    @foreach($viewdata['toys'] as $toy)
+                    @if($toy->getType() == "rc-boat")
+                    @if($toy->getQuantity() == 0)
+                    <ul class="product">
+                        <li class="product-title">{{ $toy->getName() }}</li>
+                        <li class="product-image">
+                            <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
+                                <img src="{{ asset('/img/'.$toy->getImage()) }}">
+                            </a>
+                            <ul class="product-details">
+                                <li>Price: ${{ $toy->getPrice() }}</li>
+                                <li>Stock: OUT OF STOCK</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+                    @endif
+                    @endforeach
+                </div>
+            </div>
+            <!--Each sub catalog is hidden by default, drop down when hover-->
+            <div class="sub-catalog" id="helis">
+                <h2>RC Helis</h2>
+                <!--sub-catalog-products is the container for the product grid-->
+                <div class="sub-catalog-products" id="helis-catalog">
+                    @foreach($viewdata['toys'] as $toy)
+                    @if($toy->getType() == "rc-heli")
+                    @if($toy->getQuantity() > 0)
+                    <ul class="product">
+                        <li class="product-title">{{ $toy->getName() }}</li>
+                        <li class="product-image">
+                            <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
+                                <img src="{{ asset('/img/'.$toy->getImage()) }}">
+                            </a>
+                            <ul class="product-details">
+                                <li>Price: ${{ $toy->getPrice() }}</li>
+                                <li>Stock: {{ $toy->getQuantity() }}</li>
+                                @if($toy->getQuantity() < 10)
+                                <li>LOW STOCK</li>
+                                @endif
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+                    @endif
+                    @endforeach
+                    @foreach($viewdata['toys'] as $toy)
+                    @if($toy->getType() == "rc-heli")
+                    @if($toy->getQuantity() == 0)
+                    <ul class="product">
+                        <li class="product-title">{{ $toy->getName() }}</li>
+                        <li class="product-image">
+                            <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
+                                <img src="{{ asset('/img/'.$toy->getImage()) }}">
+                            </a>
+                            <ul class="product-details">
+                                <li>Price: ${{ $toy->getPrice() }}</li>
+                                <li>Stock: OUT OF STOCK</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    @endif
+                    @endif
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div> 
 @endsection

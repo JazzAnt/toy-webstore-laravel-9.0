@@ -1,0 +1,162 @@
+section#thank-you {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+}
+p#requirement {
+    margin: 5px 0px 0px 1%;
+    color: darkred;
+    font-weight: bold;
+}
+
+form#survey {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+div#buttons {
+    text-align: center;
+    width: 100%;
+    padding: 5px;
+}
+div#buttons * {
+    font-size: 1.1em;
+    margin: 0px 5px;
+    padding: 0px 5px;
+}
+
+form#survey > fieldset {
+    flex: 1 1 451px;
+    margin: 0px 10px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: pink;
+}
+
+form#survey > fieldset legend {
+    background-color: palevioletred;
+    color: black;
+    padding: 5px;
+    margin-left: 20px;
+    font-size: 1.1em;
+    border-radius: 3px;
+    box-shadow: 5px 5px black;
+}
+
+div.form-row {
+    display: flex;
+    flex-flow: row wrap;
+    padding-bottom: 2.5px;
+    margin-bottom: 2.5px;
+}
+
+div.form-row * {
+    flex: 1 1 150px;
+}
+
+fieldset.radio-buttons div.radio-row {
+    flex: 1 0 100%;
+    margin-bottom: 3px;
+}
+
+fieldset.radio-buttons, fieldset.radio-buttons-horizontal {
+    padding: 5px;
+}
+
+fieldset.radio-buttons-horizontal label {
+    margin-right: 7px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+div#form-row-coupons {
+    padding: 5px;
+}
+
+div#form-row-coupons input {
+    flex: 0 0 100px;
+}
+
+div#form-row-coupons label {
+    flex: 1 1 150px;
+}
+
+div#pet-types > ul {
+    min-width: 30%;
+    float: left;
+}
+
+div#pet-types > ul li {
+    list-style: none;
+}
+
+div#pet-types::after {
+    clear: both;
+    content: "";
+    display: table;
+}
+
+img#dog-png {
+    max-width: 100%;
+}
+
+/**=================================================== 
+   MOBILE VIEW : 0px to 600px
+   ===================================================*/
+@media only screen and (max-width: 600px) {
+    div.form-row {
+        border-bottom: 1px solid gray;
+    }
+    div.form-row * {
+        flex: 1 1 100px;
+    }
+    div.form-row label {
+        font-size: 0.95em;
+        text-align: justify;
+        flex: 0 0 120px;
+        border-right: 1px solid gray;
+        padding-right: 7px;
+        margin-right: 7px;
+    }
+
+    div#form-row-coupons label, 
+    div#pet-types label,
+    div.radio-row label,
+    div#form-tell-us label,
+    fieldset.radio-buttons-horizontal label {
+        border-right: 0px;
+    }
+
+    div#form-tell-us {
+        border-bottom: 0px;
+    }
+    div#form-tell-us label {
+        flex: 1 1 150px;
+    }
+    img#dog-png { 
+        display: none;
+    }
+}
+
+/**===================================================
+   TABLET POTRAIT VIEW : 601px and greater
+   ===================================================*/
+@media only screen and (min-width: 601px) {
+    div#thank-you-text {grid-area: thanktext;}
+    img#dog-png {grid-area: dogpic;}
+    section#thank-you {
+        display: grid;
+        grid-template-columns: 6fr 1fr;
+        grid-template-areas: "thanktext dogpic";
+    }
+}
+
+/**===================================================
+   TABLET LANDSCAPE & DESKTOP VIEW : 901px and greater
+   ===================================================*/
+@media only screen and (min-width: 901px) {
+    form#survey > fieldset {
+        flex: 1 1 250px;
+    }
+}

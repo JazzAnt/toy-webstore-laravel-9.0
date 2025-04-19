@@ -1,0 +1,112 @@
+#overview {grid-area: overview;}
+#home-image {grid-area: home-image;}
+#sale {grid-area: sale;}
+#wrapper {display: grid;}
+
+#home-image img {
+    width: 100%;
+}
+
+#home-image figcaption {
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+#overview {
+    width: 96%;
+    padding: 0 2%;
+}
+
+#overview h2 {
+    margin-bottom: 5px;
+}
+
+#overview p {
+    text-align: justify;
+}
+
+div#sale {
+    padding: 0;
+    border: 5px solid rgb(100, 100, 100);
+    background-color: rgb(255, 255, 255);
+}
+
+div#sale h2, div#sale h3, div#sale div#countdown {
+    text-align: center;
+}
+
+div#sale h2 {
+    background-color: rgb(233, 233, 233);
+    padding-top: 5px;
+    text-shadow: 2px 2px 2px white;
+}
+
+div#sale img{
+    width: 60%;
+    margin-left: 20%;
+    border: 3px inset darkred;
+}
+
+div#countdown span {
+    font-weight: 600;
+}
+
+/** below code only used to be copy-pasted on other css*/
+
+/**=================================================== 
+   MOBILE VIEW : 0px to 600px
+   ===================================================*/
+@media only screen and (max-width: 600px) {
+    #home-image {
+        display: none;
+    }
+
+    #wrapper {
+        grid-template-columns: 1fr;
+        grid-template-areas: "overview"
+                             "sale";
+    }
+}
+
+/**===================================================
+   TABLET POTRAIT VIEW : 601px and greater
+   ===================================================*/
+@media only screen and (min-width: 601px) {
+    #wrapper {
+        padding: 10px 5px 5px 5px;
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas: "overview overview"
+                             "home-image sale";
+    }
+    #home-image {
+        width: 98%;
+        padding: 1%;
+    }
+    #home-image img {
+        border: 2px solid black;
+    }
+
+}
+
+/**===================================================
+   TABLET LANDSCAPE & DESKTOP VIEW : 901px and greater
+   ===================================================*/
+@media only screen and (min-width: 901px) {
+    #wrapper {
+        padding: 10px;
+        grid-template-areas: "overview sale"
+                             "overview home-image";
+    }
+    #home-image {
+        width: 90%;
+        padding: 5%;
+    }
+    #home-image img {
+        border: 3px outset black;
+        box-shadow: 0px 0px 3px black;
+    }
+    #home-image figcaption {
+        font-size: 1.1em;
+    }
+}

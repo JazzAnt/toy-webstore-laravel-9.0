@@ -16,49 +16,56 @@ class Toy extends Model
             "image" => "image",
             "price" => "required|numeric|gt:0",
             "quantity" => "required|numeric|gt:0",
+            "type" => "required",
         ]);
     }
 
     public function getId(){
         return $this->attributes['id'];
     }
-    public function setId(){
-        return $this->attributes['id'];
+    public function setId($id){
+        $this->attributes['id'] = $id;
     }
     public function getName(){
         return $this->attributes['name'];
     }
-    public function setName(){
-        return $this->attributes['name'];
+    public function setName($name){
+        $this->attributes['name'] = $name;
     }
     public function getDescription(){
         return $this->attributes['description'];
     }
-    public function setDescription(){
-        return $this->attributes['description'];
+    public function setDescription($description){
+        $this->attributes['description'] = $description;
     }
     public function getImage(){
         return $this->attributes['image'];
     }
-    public function setImage(){
-        return $this->attributes['image'];
+    public function setImage($image){
+        $this->attributes['image'] = $image;
     }
     public function getPrice(){
         return $this->attributes['price'];
     }
-    public function setPrice(){
-        return $this->attributes['price'];
+    public function setPrice($price){
+        $this->attributes['price'] = $price;
     }
     public function getQuantity(){
         return $this->attributes['quantity'];
     }
-    public function setQuantity(){
-        return $this->attributes['quantity'];
+    public function setQuantity($quantity){
+        $this->attributes['quantity'] = $quantity;
+    }
+    public function getType(){
+        return $this->attributes['type'];
+    }
+    public function setType($type){
+        $this->attributes['type'] = $type;
     }
     public function getTimestamp(){
         return $this->attributes['timestamp'];
     }
-    public function setTimestamp(){
-        return $this->attributes['timestamp'];
+    public function setTimestamp($timestamp){
+        $this->attributes['timestamp'] = $timestamp;
     }
 }

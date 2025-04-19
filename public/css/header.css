@@ -1,0 +1,116 @@
+header {
+    background-color: rgb(241, 163, 179);
+    border-bottom: 2px solid black;
+    background-image: url(../images/header-bg.jpg);
+    background-size: 100%;
+}
+
+header > h1 {
+    padding-left: 5px;
+    text-shadow: 2px 2px 0px red, 4px 4px 0px green, 6px 6px 0px purple;
+    word-spacing: 10px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: black;
+    margin-bottom: 5px;
+}
+
+#navigation-bar {
+    width: 100%;
+}
+
+#navigation-bar ul {
+    list-style: none;
+}
+
+#navigation-bar li {
+    width: 100%;
+    text-align: center;
+    border: 2px outset black;
+}
+
+#navigation-bar a {
+    font-size: 1.2em;
+    display: block;
+    background-color: rgb(217, 57, 89);
+    text-decoration: none;
+    color: wheat;
+    font-weight: bold;
+    transition-duration: 0.4s;
+}
+
+#navigation-bar a:hover {
+    background-color: brown;
+    color: white;
+    font-weight: bolder;
+}
+
+a#current-page {
+    background-color: brown;
+    color: white;
+    font-weight: bolder;
+}
+
+
+/**=================================================== 
+   MOBILE VIEW : 0px to 600px
+   ===================================================*/
+@media only screen and (max-width: 600px) {
+
+}
+
+/**===================================================
+   TABLET POTRAIT VIEW : 601px and greater
+   ===================================================*/
+@media only screen and (min-width: 601px) {
+    header {
+        background-image: url(../images/header-bg-pc.jpg);
+    }
+
+    header > h1 {
+        margin-left: 10%;
+        margin-bottom: 10px;
+        padding-top: 5px;
+    }
+    #navigation-bar {
+        margin-bottom: 5px;
+    }
+    #navigation-bar li {
+        width: 25%;
+        display: block;
+        float: left;
+        box-shadow: 2px 2px 0px black;
+    }
+    
+    #navigation-bar::after {
+        clear: both;
+        content: "";
+        display: table;
+    }
+}
+
+/**===================================================
+   TABLET LANDSCAPE & DESKTOP VIEW : 901px and greater
+   ===================================================*/
+@media only screen and (min-width: 901px) {
+    header {
+        position: sticky;
+        top: 0;
+    }
+
+    #navigation-bar {
+        width: 80%;
+        margin-left: 10%;
+    }
+    #navigation-bar {
+        padding-bottom: 5px;
+    }
+    #navigation-bar li {
+        width: 20%;
+        margin: 0px 2.5%;
+        box-shadow: 3px 3px 5px black;
+        border-radius: 10px;
+    }
+    #navigation-bar a {
+        border-radius: 10px;
+    }
+}
