@@ -40,7 +40,7 @@
     <a href="{{ route('admin.toy.edit', [id=> $toy->getId()]) }}"><h6>EDIT</h6></a>
     </div>
     <div class="col-md-1">
-    <form action="{{ route('admin.toy.edit', $toy->getId()) }}" method="post">
+    <form action="{{ route('admin.toy.delete', [id=> $toy->getId()]) }}" method="post">
         @csrf
         @method('DELETE')
         <button class="btn">DELETE</button>
