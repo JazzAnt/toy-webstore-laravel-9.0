@@ -9,6 +9,16 @@ class Toy extends Model
 {
     use HasFactory;
 
+    public static function validate($request){
+        $request->validate([
+            "name" => "required|max:255",
+            "description" => "required",
+            "image" => "image",
+            "price" => "required|numeric|gt:0",
+            "quantity" => "required|numeric|gt:0",
+        ]);
+    }
+
     public function getId(){
         return $this->attributes['id'];
     }
