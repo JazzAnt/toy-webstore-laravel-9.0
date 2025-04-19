@@ -22,7 +22,7 @@ class ToyController extends Controller
         $viewdata['subtitle'] = "Toy Product";
         $viewdata['toy'] = Toy::findOrFail($id);
 
-        return view("home.about")->with("viewdata", $viewdata);
+        return view("toy.about")->with("viewdata", $viewdata);
     }
 
     public function checkout(){
