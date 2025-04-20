@@ -88,6 +88,18 @@ li.product-image > a:hover+ul.product-details, ul.product-details:hover {
     border: 3px solid black;
 }
 
+ul.out-of-stock{
+    background-color: gray;
+}
+
+li.out-of-stock{
+    background-color: gray;
+}
+
+img.out-of-stock {
+    filter: grayscale(1);
+}
+
 
 /**=================================================== 
    MOBILE VIEW : 0px to 600px

@@ -1,19 +1,20 @@
-@section('add_form')
+@section('edit_form')
 <div id="wrapper">
-        <h2>Add a Toy to the Catalog</h2>
-        <form id="survey" action="{{ route('admin.product.update', ['id'=> $viewdata['toy']->getId()]) }}" method="post">
+        <form id="survey" action="{{ route('admin.toy.update', ['id'=> $viewdata['toy']->getId()]) }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
+            <fieldset>
+                <legend>Edit the a Toy in the Catalog</legend>
                 <div class="form-row">
                     <label for="name">Name</label>
                     <input type="text" name="name" id="name" value="{{ $viewdata['toy']->getName() }}">
                 </div>
 
-                <div class="form-row" id="description">
+                <div class="form-row">
                     <label for="description">Description</label>
                 </div>
                 <div class="form-row">
-                    <textarea name="description" id="description" value="{{ $viewdata['toy']->getDescription() }}"></textarea>
+                    <textarea name="description" id="description" value="{{ $viewdata['toy']->getDescription() }}">{{ $viewdata['toy']->getDescription() }}</textarea>
                 </div>
 
                 <div class="form-row">
@@ -56,12 +57,13 @@
                     <label for="image">Image</label>
                     <input type="file" name="image">
                 </div>
-
+            </fieldset>
             <div id="buttons">
                 <input type="submit" value="Submit">
                 <input type="reset" value="Cancel">
 
             </div>
         </form>
+        <img src="{{ asset('/images/'.$viewdata['toy']->getImage()) }}" class="img-fluid rounded">
     </div>
 @endsection

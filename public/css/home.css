@@ -1,13 +1,13 @@
 #overview {grid-area: overview;}
 #home-image {grid-area: home-image;}
-#sale {grid-area: sale;}
+/* #sale {grid-area: sale;} */
 #wrapper {display: grid;}
 
-#home-image img {
+#home-image figure img {
     width: 100%;
 }
 
-#home-image figcaption {
+#home-image figure figcaption {
     text-align: center;
     font-weight: 600;
     font-size: 0.9em;
@@ -52,6 +52,45 @@ div#countdown span {
     font-weight: 600;
 }
 
+div.admin-index {
+    border: 3px solid black;
+}
+
+div.center-font {
+    text-align: center;
+}
+
+div.admin-table div{
+    background-color: rgb(205, 226, 252);
+}
+
+div.admin-table div.admin-header {
+    background-color: rgb(9, 1, 68);
+    color: rgb(255, 255, 121);
+}
+
+div.card-lower{
+    margin-top: 10px;
+}
+
+div.warning h5{
+    color: red;
+}
+div.warning table{
+    width: max-content;
+    margin-left: 3%;
+}
+div.warning th{
+    background-color: rgb(243, 182, 182);
+    font-weight: bold;
+    padding: 1px 5px;
+}
+div.warning td{
+    border: 1px solid black;
+    padding: 1px 5px;
+    text-align: left;
+}
+
 /** below code only used to be copy-pasted on other css*/
 
 /**=================================================== 
@@ -65,7 +104,7 @@ div#countdown span {
     #wrapper {
         grid-template-columns: 1fr;
         grid-template-areas: "overview"
-                             "sale";
+                             "home-image";
     }
 }
 
@@ -77,11 +116,12 @@ div#countdown span {
         padding: 10px 5px 5px 5px;
         grid-template-columns: 2fr 1fr;
         grid-template-areas: "overview overview"
-                             "home-image sale";
+                             "home-image home-image";
     }
     #home-image {
-        width: 98%;
+        width: 78%;
         padding: 1%;
+        padding-top: 30%;
     }
     #home-image img {
         border: 2px solid black;
@@ -95,12 +135,12 @@ div#countdown span {
 @media only screen and (min-width: 901px) {
     #wrapper {
         padding: 10px;
-        grid-template-areas: "overview sale"
-                             "overview home-image";
+        grid-template-areas: "overview home-image";
     }
     #home-image {
-        width: 90%;
+        width: 70%;
         padding: 5%;
+        padding-top: 8%;
     }
     #home-image img {
         border: 3px outset black;

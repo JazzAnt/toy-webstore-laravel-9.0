@@ -1,13 +1,13 @@
-@extends('layout.app')
+@extends('layouts.app')
 @section('title', $viewdata["title"])
 @section('subtitle', $viewdata["subtitle"])
 @section('content')
     <div id="wrapper">
         <div id="image1">
-            <img src="{{ asset('/img/'.$viewdata['toy']->getImage()) }}">
+            <img src="{{ asset('/images/'.$viewdata['toy']->getImage()) }}">
         </div>
         <div id="image2">
-            <img src="{{ asset('/img/'.$viewdata['toy']->getImage()) }}">
+            <img src="{{ asset('/images/'.$viewdata['toy']->getImage()) }}">
         </div>
         <div id="details">
             <h2>{{$viewdata['toy']->getName()}}</h2>
@@ -32,7 +32,7 @@
                 @endif
             <div class="recommended-items">
                 <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
-                    <img src="{{ asset('/img/'.$toy->getImage()) }}">
+                    <img src="{{ asset('/images/'.$toy->getImage()) }}">
                 </a>
                 <div class="recommended-details">
                     <h3>{{ $toy->getName() }}</h3>

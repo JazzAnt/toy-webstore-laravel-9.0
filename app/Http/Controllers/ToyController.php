@@ -10,7 +10,7 @@ class ToyController extends Controller
     public function index(){
         $viewdata = [];
         $viewdata['title'] = "Store Page - Toy Webstore";
-        $viewdata['subtitle'] = "Toy Webstore";
+        $viewdata['subtitle'] = "Toy Catalog";
         $viewdata['toys'] = Toy::all();
 
         return view("toy.index")->with("viewdata", $viewdata);

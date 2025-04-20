@@ -4,15 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link href="{{ asset('/css/reset.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/header.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/footer.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/toy-details.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/checkout.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/contact-us.css') }}" rel="stylesheet">
-    <link href="{{ asset('/css/home.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/toy-catalog.css') }}" rel="stylesheet">
 
     <title>@yield('title', 'Toy Store')</title>

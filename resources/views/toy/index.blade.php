@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layouts.catalog')
 @section('title', $viewdata["title"])
 @section('subtitle', $viewdata["subtitle"])
 @section('content')
@@ -24,7 +24,7 @@
                         <li class="product-title">{{ $toy->getName() }}</li>
                         <li class="product-image">
                             <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
-                                <img src="{{ asset('/img/'.$toy->getImage()) }}">
+                                <img src="{{ asset('/images/'.$toy->getImage()) }}">
                             </a>
                             <ul class="product-details">
                                 <li>Price: ${{ $toy->getPrice() }}</li>
@@ -42,12 +42,12 @@
                     @if($toy->getType() == "rc-car")
                     @if($toy->getQuantity() == 0)
                     <ul class="product">
-                        <li class="product-title">{{ $toy->getName() }}</li>
+                        <li class="product-title out-of-stock">{{ $toy->getName() }}</li>
                         <li class="product-image">
                             <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
-                                <img src="{{ asset('/img/'.$toy->getImage()) }}">
+                                <img src="{{ asset('/images/'.$toy->getImage()) }}" class="out-of-stock">
                             </a>
-                            <ul class="product-details">
+                            <ul class="product-details out-of-stock">
                                 <li>Price: ${{ $toy->getPrice() }}</li>
                                 <li>Stock: OUT OF STOCK</li>
                             </ul>
@@ -70,7 +70,7 @@
                         <li class="product-title">{{ $toy->getName() }}</li>
                         <li class="product-image">
                             <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
-                                <img src="{{ asset('/img/'.$toy->getImage()) }}">
+                                <img src="{{ asset('/images/'.$toy->getImage()) }}">
                             </a>
                             <ul class="product-details">
                                 <li>Price: ${{ $toy->getPrice() }}</li>
@@ -88,12 +88,12 @@
                     @if($toy->getType() == "rc-boat")
                     @if($toy->getQuantity() == 0)
                     <ul class="product">
-                        <li class="product-title">{{ $toy->getName() }}</li>
+                        <li class="product-title out-of-stock">{{ $toy->getName() }}</li>
                         <li class="product-image">
                             <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
-                                <img src="{{ asset('/img/'.$toy->getImage()) }}">
+                                <img src="{{ asset('/images/'.$toy->getImage()) }}" class="out-of-stock">
                             </a>
-                            <ul class="product-details">
+                            <ul class="product-details out-of-stock">
                                 <li>Price: ${{ $toy->getPrice() }}</li>
                                 <li>Stock: OUT OF STOCK</li>
                             </ul>
@@ -116,7 +116,7 @@
                         <li class="product-title">{{ $toy->getName() }}</li>
                         <li class="product-image">
                             <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
-                                <img src="{{ asset('/img/'.$toy->getImage()) }}">
+                                <img src="{{ asset('/images/'.$toy->getImage()) }}">
                             </a>
                             <ul class="product-details">
                                 <li>Price: ${{ $toy->getPrice() }}</li>
@@ -134,12 +134,12 @@
                     @if($toy->getType() == "rc-heli")
                     @if($toy->getQuantity() == 0)
                     <ul class="product">
-                        <li class="product-title">{{ $toy->getName() }}</li>
+                        <li class="product-title out-of-stock">{{ $toy->getName() }}</li>
                         <li class="product-image">
                             <a href="{{ route('toy.show', ['id'=> $toy->getId()]) }}">
-                                <img src="{{ asset('/img/'.$toy->getImage()) }}">
+                                <img src="{{ asset('/images/'.$toy->getImage()) }}" class="out-of-stock">
                             </a>
-                            <ul class="product-details">
+                            <ul class="product-details out-of-stock">
                                 <li>Price: ${{ $toy->getPrice() }}</li>
                                 <li>Stock: OUT OF STOCK</li>
                             </ul>

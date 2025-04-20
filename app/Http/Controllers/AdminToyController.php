@@ -34,18 +34,16 @@ class AdminToyController extends Controller
         $toy->setPrice($request->input("price"));
         $toy->setQuantity($request->input("quantity"));
         $toy->setType($request->input("type"));
+        $toy->setImage("rc-cars.jpg");
+        $toy->save();
 
         if($request->hasFile("image")){
-            $imageName = $toy->getId()."_".$request->file("image")->extension();
-            Storage::disk("public")->put($imageName, file_get_contents($request->file("image")->getRealPath()));
+            $imageName = $toy->getId().".".$request->file("image")->extension();
+            Storage::disk("images")->put($imageName, file_get_contents($request->file("image")->getRealPath()));
             $toy->setImage($imageName);
+            $toy->save();
         }
-        else{
-            $toy->setImage("rc-cars.jpg");
-        }
-
-        $toy->save();
-        return back();
+        return $this->index();
     }
 
     public function edit($id){
@@ -66,19 +64,24 @@ class AdminToyController extends Controller
         $toy->setPrice($request->input("price"));
         $toy->setQuantity($request->input("quantity"));
         $toy->setType($request->input("type"));
+        $toy->save();
 
         if($request->hasFile("image")){
-            $imageName = $toy->getId()."_".$request->file("image")->extension();
-            Storage::disk("public")->put($imageName, file_get_contents($request->file("image")->getRealPath()));
+            $oldImageName = $toy->getImage();
+            $imageName = $toy->getId().".".$request->file("image")->extension();
+            Storage::disk("images")->put($imageName, file_get_contents($request->file("image")->getRealPath()));
             $toy->setImage($imageName);
+            $toy->save();
+            Storage::disk("images")->delete($oldImageName);
         }
 
-        $toy->save();
-        return back();
+        return $this->index();
     }
 
     public function delete($id){
+        $imageName = Toy::findOrFail($id)->getImage();
         Toy::destroy($id);
-        return back();
+        Storage::disk("images")->delete($imageName);
+        return $this->index();
     }
 }

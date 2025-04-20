@@ -15,7 +15,7 @@ class Toy extends Model
             "description" => "required",
             "image" => "image",
             "price" => "required|numeric|gt:0",
-            "quantity" => "required|numeric|gt:0",
+            "quantity" => "required|numeric|gt:-1",
             "type" => "required",
         ]);
     }
