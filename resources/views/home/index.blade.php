@@ -12,7 +12,7 @@
     </section>
     <div id="home-image">
         <figure>
-                <img src="{{ asset('/img/rc-cars.jpg') }}">
+                <img src="{{ asset('/images/rc-cars.jpg') }}">
                 <figcaption>Our RC Cars in a Race!</figcaption>
         </figure>
     </div>

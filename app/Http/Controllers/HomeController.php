@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -10,6 +11,7 @@ class HomeController extends Controller
         $viewdata = [];
         $viewdata['title'] = "Home - Toy Webstore";
         $viewdata['subtitle'] = "Toy Webstore";
+        $viewdata['user'] = Auth::user();
 
         return view("home.index")->with("viewdata", $viewdata);
     }
@@ -18,6 +20,7 @@ class HomeController extends Controller
         $viewdata = [];
         $viewdata['title'] = "About - Toy Webstore";
         $viewdata['subtitle'] = "About Us";
+        $viewdata['user'] = Auth::user();
 
         return view("home.about")->with("viewdata", $viewdata);
     }
@@ -26,5 +29,6 @@ class HomeController extends Controller
         $viewdata = [];
         $viewdata['title'] = "Contact Us - Toy Webstore";
         $viewdata['subtitle'] = "Contact Us";
+        $viewdata['user'] = Auth::user();
     }
 }

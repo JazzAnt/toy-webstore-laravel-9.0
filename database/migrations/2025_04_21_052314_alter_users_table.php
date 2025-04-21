@@ -16,7 +16,7 @@ return new class extends Migration
         //work on the existing users table
         Schema::table("users", function(Blueprint $table){
             $table->string('role')->default('customer');
-            $table->string('balance')->default('0');
+            $table->string('balance');
         });
     }
 

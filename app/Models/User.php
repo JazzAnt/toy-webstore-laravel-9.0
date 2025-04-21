@@ -43,6 +43,24 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getName(){
+        return $this->attributes['name'];
+    }
+    public function setName($name){
+        $this->attributes['name'] = $name;
+    }   
+    public function getEmail(){
+        return $this->attributes['email'];
+    }
+    public function setEmail($email){
+        $this->attributes['email'] = $email;
+    }
+    public function getPassword(){
+        return $this->attributes['password'];
+    }
+    public function setPassword($password){
+        $this->attributes['password'] = $password;
+    }
     public function getRole(){
         return $this->attributes['role'];
     }

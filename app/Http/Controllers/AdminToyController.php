@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Toy;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class AdminToyController extends Controller
 {
@@ -13,6 +14,7 @@ class AdminToyController extends Controller
         $viewdata['title'] = "Catalog Editor - Toy Webstore";
         $viewdata['subtitle'] = "Catalog Editor - Toy Webstore";
         $viewdata['toys'] = Toy::all();
+        $viewdata['user'] = Auth::user();
 
         return view("admin.toy.index")->with("viewdata", $viewdata);
     }
@@ -21,6 +23,7 @@ class AdminToyController extends Controller
         $viewdata = [];
         $viewdata['title'] = "Catalog Add - Toy Webstore";
         $viewdata['subtitle'] = "Catalog Add - Toy Webstore";
+        $viewdata['user'] = Auth::user();
 
         return view("admin.toy.add")->with("viewdata", $viewdata);
     }
@@ -51,6 +54,7 @@ class AdminToyController extends Controller
         $viewdata['title'] = "Toy Editor - Toy Webstore";
         $viewdata['subtitle'] = "Toy Editor - Toy Product";
         $viewdata['toy'] = Toy::findOrFail($id);
+        $viewdata['user'] = Auth::user();
 
         return view("admin.toy.edit")->with("viewdata", $viewdata);
     }
