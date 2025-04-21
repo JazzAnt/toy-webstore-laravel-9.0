@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'balance',
     ];
 
     /**
@@ -41,4 +42,17 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getRole(){
+        return $this->attributes['role'];
+    }
+    public function setRole($role){
+        $this->attributes['role'] = $role;
+    }
+    public function getBalance(){
+        return $this->attributes['balance'];
+    }
+    public function setBalance($balance){
+        $this->attributes['role'] = $balance;
+    }
 }

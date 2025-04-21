@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,3 +41,6 @@ Route::get("/admin/toys/{id}/edit", "App\Http\Controllers\AdminToyController@edi
 Route::put("/admin/toys/{id}/update", "App\Http\Controllers\AdminToyController@update")->name("admin.toy.update");
 //delete
 Route::delete("/admin/toys/{id}/delete", "App\Http\Controllers\AdminToyController@delete")->name("admin.toy.delete");
+Auth::routes();
+
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
