@@ -13,7 +13,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     public function carts(){
-        return $this->hasMany('Cart');
+        return $this->hasMany('App\Models\Cart');
     }
 
     /**
@@ -46,7 +46,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
+    public function getId(){
+        return $this->attributes['id'];
+    }
     public function getName(){
         return $this->attributes['name'];
     }
@@ -75,6 +77,6 @@ class User extends Authenticatable
         return $this->attributes['balance'];
     }
     public function setBalance($balance){
-        $this->attributes['role'] = $balance;
+        $this->attributes['balance'] = $balance;
     }
 }

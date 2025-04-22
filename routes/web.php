@@ -25,7 +25,13 @@ Route::get("/about", "App\Http\Controllers\HomeController@about")->name("home.ab
 //toys
 Route::get("/toys", "App\Http\Controllers\ToyController@index")->name("toy.index");
 Route::get("/toys/{id}", "App\Http\Controllers\ToyController@show")->name("toy.show");
-Route::get("/checkout", "App\Http\Controllers\ToyController@checkout")->name("toy.checkout");
+
+//cart
+Route::get("/checkout", "App\Http\Controllers\CartController@checkout")->name("toy.checkout");
+Route::put("/checkout/add/{id}", "App\Http\Controllers\CartController@addToCart")->name("toy.checkout.add");
+Route::put("/checkout/decrease/{id}", "App\Http\Controllers\CartController@decreaseCartByOne")->name("toy.checkout.decrease");
+Route::delete("/checkout/delete/{id}", "App\Http\Controllers\CartController@deleteCart")->name("toy.checkout.delete");
+Route::put("/checkout/purchase}", "App\Http\Controllers\CartController@purchase")->name("toy.checkout.purchase");
 
 Route::middleware('admin')->group(function(){
     //admin

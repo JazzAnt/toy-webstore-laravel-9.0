@@ -2,6 +2,11 @@ div#purchase-details {
     width: 100%;
 }
 
+div#purchase-details h2{
+    color: darkblue;
+    font-weight: bolder;
+}
+
 div#purchase-details table {
     width: 100%;
     border: 2px solid black;
@@ -15,36 +20,52 @@ thead {
 
 th {
     border: 2px solid black;
+    padding-left: 6px;
 }
 
 tr.purchase-row {
     border-bottom: 1px solid gray;
 }
 
+th.quantity {
+    border-left: 0;
+    border-right: 0;
+}
+
+button.quantity-alter {
+    font-weight: bold;
+    padding: 0px 10px;
+    border-radius: 25px;
+}
+
 tr.purchase-row > td img {
     width: 100%;
-    padding-top: 4px;
-    padding-left: 4px;
+    border: 1px solid gray;
 }
 
 col#column-image {
-    width: 13%;
-    background-color: wheat;
+    width: 10%;
+    background-color: lightskyblue;
 }
 
 col#column-name {
-    width: 45%;
-    background-color: wheat;
+    width: 50%;
+    background-color: lightskyblue;
 }
 
-col#column-quantity {
-    width: 17%;
+col.column-quantity {
+    width: 5%;
     background-color: bisque;
 }
 
-col#column-price {
-    width: 25%;
-    background-color: wheat;
+col#column-cost {
+    width: 20%;
+    background-color: lightskyblue;
+}
+
+col#column-delete {
+    width: 5%;
+    background-color: gray;
 }
 
 td {
@@ -62,21 +83,23 @@ div#checkout-buttons button {
     margin: 5px 20px;
 }
 
-div#total-purchase {
-    width: 100%;
-    background-color: palevioletred;
-    border: 2px solid black;
+tr#totalcost td {
+    background-color: darkblue;
+    color: yellow;
+    font-weight: bold;
+}
+tr#empty-cart td {
+    background-color: lightcyan;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
 }
 
-div#total-purchase p {
+button#purchase-button {
+    padding: 0px 5px;
+    background-color: darkgreen;
+    color: lightyellow;
+    border-radius: 10px;
     width: 100%;
-    text-align: right;
-    padding: 0px 10% 5px 0;
-    font-size: 1.1em;
-}
-
-p#total-bill {
-    border-top: 1px dashed black;
 }
 
 /**=================================================== 
@@ -90,27 +113,10 @@ p#total-bill {
    TABLET POTRAIT VIEW : 601px and greater
    ===================================================*/
 @media only screen and (min-width: 601px) {
-    div#purchase-details, div#total-purchase {
+    div#purchase-details {
         width: 90%;
         margin-left: 5%;
         padding-top: 15px;
-    }
-
-    div#total-purchase {
-        padding-top: 5px;
-    }
-
-    /*col img = 13%*/
-    col#column-name {
-        width: 53%;
-    }
-
-    col#column-quantity {
-        width: 14%;
-    }
-
-    col#column-price {
-        width: 20%;
     }
 
 }
@@ -119,25 +125,9 @@ p#total-bill {
    TABLET LANDSCAPE & DESKTOP VIEW : 901px and greater
    ===================================================*/
 @media only screen and (min-width: 901px) {
-    div#purchase-details, div#total-purchase {
+    div#purchase-details {
         width: 75%;
         margin-left: 12.5%;
     }
 
-    div#total-purchase {
-        margin-top: 5px;
-    }
-
-    /*col img = 13%*/
-    col#column-name {
-        width: 60%;
-    }
-
-    col#column-quantity {
-        width: 10%;
-    }
-
-    col#column-price {
-        width: 17%;
-    }
 }

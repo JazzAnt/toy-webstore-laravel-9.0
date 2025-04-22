@@ -18,7 +18,17 @@
             @if($viewdata['toy']->getQuantity() < 10)
             <p>LOW STOCK!</p>
             @endif
-            <button>Add to Cart</button>
+            @guest
+            <a class="nav-link active" href="{{ route('login') }}"><button>Login to Add Items to Cart</button></a>
+            @else
+            <form action="{{ route('toy.checkout.add', ['id'=> $viewdata['toy']->getId()]) }}" method="post">
+                @csrf
+                @method('PUT')
+                <button type="submit">Add to Cart</button>
+            </form>
+
+
+            @endguest
             @else
             <p>OUT OF STOCK</p>
             @endif
